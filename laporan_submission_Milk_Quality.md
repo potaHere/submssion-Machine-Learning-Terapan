@@ -55,7 +55,11 @@ Dataset diperoleh dari platform Kaggle dengan judul "Milk Quality Prediction" [1
 Tahapan preprocessing yang dilakukan:
 1. Penanganan Outlier:
    - Menggunakan metode IQR untuk mendeteksi dan menangani outlier pada fitur pH, Temperature, dan Colour
-   - Outlier dipertahankan karena merepresentasikan variasi alami dalam kualitas susu
+   - Pada implementasinya, outlier dihapus dari dataset dengan menggunakan batas:
+     - Lower bound = Q1 - 1.5 * IQR
+     - Upper bound = Q3 + 1.5 * IQR
+   - Proses ini mengurangi jumlah sampel dari ukuran dataset awal, namun menghasilkan distribusi yang lebih normal
+   - Visualisasi box plot sebelum dan sesudah penghapusan outlier menunjukkan perbaikan distribusi data
 
 2. Standarisasi Fitur Numerik:
    - Menerapkan StandardScaler pada fitur pH, Temperature, dan Colour
